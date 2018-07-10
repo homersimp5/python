@@ -274,39 +274,42 @@ class Logado():
 
 
     def alterar(self):
-        nome = self.EnPesq.get()
-        inff = c.execute(f"""SELECT `user` FROM usuarios WHERE `user`='{nome}'""")
-        try:
-            for cada in inff:
-                pass
-            print(cada[0])
-            g = 1
-        except:
-            g = 0
-        if g == 1:
-            self.lb_encon_u["text"] = f"Usuario '{nome}' encontrado."
-            self.lb_encon_u["fg"] = "black"
-            self.lb_nome_u.place(x=10, y=222)
-            self.lb_login_u.place(x=10, y=242)
-            self.lb_senha_u.place(x=10, y=262)
+       if self.cargo == 1:
+            nome = self.EnPesq.get()
+            inff = c.execute(f"""SELECT `user` FROM usuarios WHERE `user`='{nome}'""")
+            try:
+                for cada in inff:
+                    pass
+                print(cada[0])
+                g = 1
+            except:
+                g = 0
+            if g == 1:
+                self.lb_encon_u["text"] = f"Usuario '{nome}' encontrado."
+                self.lb_encon_u["fg"] = "black"
+                self.lb_nome_u.place(x=10, y=222)
+                self.lb_login_u.place(x=10, y=242)
+                self.lb_senha_u.place(x=10, y=262)
 
-            self.en_nome_u.place(x=80, y=222)
-            self.en_login_u.place(x=80, y=242)
-            self.en_senha_u.place(x=80, y=262)
-            self.bt_conf.place(x=222, y=255)
-            self.bt_delet.place(x=222, y=220)
+                self.en_nome_u.place(x=80, y=222)
+                self.en_login_u.place(x=80, y=242)
+                self.en_senha_u.place(x=80, y=262)
+                self.bt_conf.place(x=222, y=255)
+                self.bt_delet.place(x=222, y=220)
+            else:
+                self.lb_encon_u["fg"] = "black"
+                self.lb_encon_u["text"] = f"Usuario '{nome}' não encontrado."
+                self.lb_nome_u.place(x=99999, y=222)
+                self.lb_login_u.place(x=99999, y=242)
+                self.lb_senha_u.place(x=99999, y=262)
+
+                self.en_nome_u.place(x=99999, y=222)
+                self.en_login_u.place(x=99999, y=242)
+                self.en_senha_u.place(x=99999, y=262)
+                self.bt_conf.place(x=99999, y=255)
+                self.bt_delet.place(x=99999,y=222)
         else:
-            self.lb_encon_u["fg"] = "black"
-            self.lb_encon_u["text"] = f"Usuario '{nome}' não encontrado."
-            self.lb_nome_u.place(x=99999, y=222)
-            self.lb_login_u.place(x=99999, y=242)
-            self.lb_senha_u.place(x=99999, y=262)
-
-            self.en_nome_u.place(x=99999, y=222)
-            self.en_login_u.place(x=99999, y=242)
-            self.en_senha_u.place(x=99999, y=262)
-            self.bt_conf.place(x=99999, y=255)
-            self.bt_delet.place(x=99999,y=222)
+            print('Você não tem permissão.')
 
     def pesq(self):
         nome = ''
