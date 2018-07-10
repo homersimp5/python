@@ -13,7 +13,7 @@ conn = c.cursor()
 
 
 try:
-    c.execute("""CREATE TABLE IF NOT EXISTS usuarios (id INT AUTO_INCREMENT, nome VARCHAR(20), user VARCHAR(15) UNIQUE NOT NULL, pass VARCHAR(50))""")
+    c.execute("""CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY, nome VARCHAR(20), user VARCHAR(15) UNIQUE NOT NULL, pass VARCHAR(50))""")
 except:
 	pass
 
