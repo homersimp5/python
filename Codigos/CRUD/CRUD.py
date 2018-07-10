@@ -274,7 +274,7 @@ class Logado():
 
 
     def alterar(self):
-       if self.cargo == 1:
+        if self.cargo == 1:
             nome = self.EnPesq.get()
             inff = c.execute(f"""SELECT `user` FROM usuarios WHERE `user`='{nome}'""")
             try:
